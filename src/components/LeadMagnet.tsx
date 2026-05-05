@@ -6,20 +6,27 @@ interface LeadMagnetProps {
   headline: string;
   subhead: string;
   dark?: boolean;
+  buttonLabel?: string;
+  successMessage?: string;
 }
 
-export default function LeadMagnet({ headline, subhead, dark = false }: LeadMagnetProps) {
+export default function LeadMagnet({
+  headline,
+  subhead,
+  dark = false,
+  buttonLabel = "Subscribe — Free",
+  successMessage = "You're in. Check your inbox.",
+}: LeadMagnetProps) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (!email) return;
     setSubmitted(true);
   };
 
-  const bgColor = dark ? "rgba(255,255,255,0.05)" : "white";
   const inputBg = dark ? "rgba(255,255,255,0.08)" : "white";
   const inputBorder = dark ? "rgba(255,255,255,0.2)" : "var(--divider)";
   const textColor = dark ? "white" : "var(--navy)";
@@ -30,26 +37,24 @@ export default function LeadMagnet({ headline, subhead, dark = false }: LeadMagn
       <div className="text-center py-8">
         <Shield size={48} style={{ color: "var(--teal-lt)", margin: "0 auto 16px" }} />
         <h3 className="font-display font-bold mb-2" style={{ color: textColor, fontSize: "20px" }}>
-          You&apos;re in. Check your inbox.
+          {successMessage}
         </h3>
-        <p className="font-body" style={{ color: labelColor }}>
-          The AI Security Risk Overview is on its way. While you&apos;re here &mdash;
-        </p>
-        <a href="/course" className="btn-primary mt-4 inline-block">
-          See the Full Curriculum →
-        </a>
       </div>
     );
   }
 
   return (
     <div>
-      <h3 className="font-display font-bold mb-2" style={{ color: textColor, fontSize: "clamp(18px, 3vw, 24px)" }}>
-        {headline}
-      </h3>
-      <p className="font-body mb-6" style={{ color: labelColor, fontSize: "16px" }}>
-        {subhead}
-      </p>
+      {headline && (
+        <h3 className="font-display font-bold mb-2" style={{ color: textColor, fontSize: "clamp(18px, 3vw, 24px)" }}>
+          {headline}
+        </h3>
+      )}
+      {subhead && (
+        <p className="font-body mb-6" style={{ color: labelColor, fontSize: "16px" }}>
+          {subhead}
+        </p>
+      )}
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
           <label className="sr-only" htmlFor="lm-name">First name</label>
@@ -89,11 +94,11 @@ export default function LeadMagnet({ headline, subhead, dark = false }: LeadMagn
           />
         </div>
         <button type="submit" className="btn-primary w-full text-center" style={{ width: "100%" }}>
-          Download Free — Instant Access
+          {buttonLabel}
         </button>
       </form>
       <p className="font-body mt-3 text-center" style={{ fontSize: "12px", color: labelColor }}>
-        No spam. Unsubscribe any time. Your data is never sold or shared.
+        No spam. Unsubscribe any time.
       </p>
     </div>
   );
