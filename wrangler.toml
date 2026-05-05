@@ -9,6 +9,10 @@ command = "npm run build"
 directory = "./out"
 binding = "ASSETS"
 
+routes = [
+  { pattern = "aitrustaudit.com/*", custom_domain = true }
+]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "aitrustaudit-leads"
