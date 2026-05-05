@@ -12,4 +12,4 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "aitrustaudit-leads"
-database_id = "adafc126-41a6-48f8-8f7a-2a13c8a02035"
+database_id = "e73d0f7d-d1e9-4f45-a04a-c522f6c2486d"
