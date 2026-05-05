@@ -1,26 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy:     #0D1B2A;
+  --teal:     #00796B;
+  --teal-lt:  #00ACC1;
+  --teal-bg:  #E0F7FA;
+  --amber:    #E65100;
+  --red:      #B71C1C;
+  --green:    #1B5E20;
+  --mid-gray: #546E7A;
+  --light-bg: #F0F4F8;
+  --divider:  #CFD8DC;
+  --white:    #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy:     var(--navy);
+  --color-teal:     var(--teal);
+  --color-teal-lt:  var(--teal-lt);
+  --color-teal-bg:  var(--teal-bg);
+  --color-amber:    var(--amber);
+  --color-risk-red: var(--red);
+  --color-risk-green: var(--green);
+  --color-mid-gray: var(--mid-gray);
+  --color-light-bg: var(--light-bg);
+  --color-divider:  var(--divider);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--mid-gray);
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Orbitron", system-ui, sans-serif;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.font-display {
+  font-family: "Orbitron", system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: "Rajdhani", system-ui, sans-serif;
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(0, 200, 255, 0.3);
+}
+
+.glow-icon {
+  filter: drop-shadow(0 0 10px rgba(0, 172, 193, 0.6));
+}
+
+.accent-bar {
+  height: 4px;
+  width: 100%;
+  background: var(--teal-lt);
+}
+
+/* Scan line texture for dark sections */
+.scan-lines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 172, 193, 0.03) 3px,
+    rgba(0, 172, 193, 0.03) 4px
+  );
+}
+
+/* Corner bracket decoration */
+.corner-bracket {
+  position: relative;
+}
+.corner-bracket::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid var(--teal-lt);
+  border-left: 2px solid var(--teal-lt);
+}
+.corner-bracket::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--teal-lt);
+  border-right: 2px solid var(--teal-lt);
+}
+
+/* Section label style */
+.section-label {
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--teal-lt);
+}
+
+/* CTA button styles */
+.btn-primary {
+  background: var(--teal);
+  color: white;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--teal-lt);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: white;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 13px 31px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: var(--teal-lt);
+  color: var(--teal-lt);
+  transform: translateY(-1px);
+}
+
+/* Input style */
+.input-field {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--divider);
+  color: var(--navy);
+  font-family: "Rajdhani", system-ui, sans-serif;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field:focus {
+  border-color: var(--teal);
+}
+.input-field::placeholder {
+  color: var(--mid-gray);
+}
+
+/* Dark section input override */
+.dark-input .input-field {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  color: white;
+}
+.dark-input .input-field::placeholder {
+  color: rgba(255,255,255,0.5);
 }
