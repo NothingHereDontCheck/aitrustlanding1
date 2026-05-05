@@ -1,8 +1,15 @@
 name = "aitrustaudit"
 compatibility_date = "2024-01-01"
+main = "worker/index.ts"
 
 [build]
 command = "npm run build"
 
 [assets]
 directory = "./out"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aitrustaudit-leads"
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"

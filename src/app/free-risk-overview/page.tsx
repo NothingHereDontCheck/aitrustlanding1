@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ShieldIcon from "@/components/ShieldIcon";
-import LeadMagnet from "@/components/LeadMagnet";
+import DownloadForm from "@/components/DownloadForm";
 
 export const metadata: Metadata = {
   title: "Free AI Security Risk Overview | AITrustAudit.com",
@@ -85,24 +85,11 @@ export default function FreeRiskOverviewPage() {
               <div className="mb-2" style={{ fontSize: "11px", color: "var(--teal-lt)", letterSpacing: "4px", textTransform: "uppercase" }}>
                 // FREE DOWNLOAD
               </div>
-              <h3 className="font-display font-bold mb-2" style={{ color: "var(--navy)", fontSize: "clamp(18px, 3vw, 24px)" }}>
-                The 5 AI Security Risks Threatening Your Business Right Now
-              </h3>
-              <p className="font-body mb-6" style={{ color: "var(--mid-gray)", fontSize: "16px" }}>
-                A free 1-page overview used by security consultants to brief SMB leadership. No sign-up, no fluff.
-              </p>
-              <a
-                href="/AITrustAudit_5RiskOverview.pdf"
-                download
-                className="btn-primary flex items-center justify-center gap-2"
-                style={{ display: "flex" }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download Free — Instant Access
-              </a>
-              <p className="font-body mt-3 text-center" style={{ fontSize: "12px", color: "var(--mid-gray)" }}>
-                Free PDF — no sign-up required
-              </p>
+              <DownloadForm
+                headline="The 5 AI Security Risks Threatening Your Business Right Now"
+                subhead="A free 1-page overview used by security consultants to brief SMB leadership."
+                dark={false}
+              />
             </div>
           </div>
 

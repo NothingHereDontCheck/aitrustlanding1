@@ -6,6 +6,7 @@ import StatBand from "@/components/StatBand";
 import CTABanner from "@/components/CTABanner";
 import CircuitPattern from "@/components/CircuitPattern";
 import NewsletterInlineForm from "@/components/NewsletterInlineForm";
+import DownloadForm from "@/components/DownloadForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -284,24 +285,11 @@ export default function HomePage() {
 
             {/* Download */}
             <div>
-              <h3 className="font-display font-bold mb-2" style={{ color: "white", fontSize: "clamp(18px, 3vw, 24px)" }}>
-                The AI Security Risk Overview — Free Download
-              </h3>
-              <p className="font-body mb-6" style={{ color: "rgba(255,255,255,0.65)", fontSize: "16px" }}>
-                One page. Five risks. Instant download. Used by security consultants to brief SMB leadership.
-              </p>
-              <a
-                href="/AITrustAudit_5RiskOverview.pdf"
-                download
-                className="btn-primary flex items-center justify-center gap-2"
-                style={{ display: "flex" }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download Free — Instant Access
-              </a>
-              <p className="font-body mt-3 text-center" style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
-                Free PDF — no sign-up required
-              </p>
+              <DownloadForm
+                headline="The AI Security Risk Overview — Free Download"
+                subhead="One page. Five risks. Instant download. Used by security consultants to brief SMB leadership."
+                dark={true}
+              />
             </div>
           </div>
         </div>
