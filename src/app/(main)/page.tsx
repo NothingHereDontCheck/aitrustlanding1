@@ -5,7 +5,6 @@ import SectionLabel from "@/components/SectionLabel";
 import StatBand from "@/components/StatBand";
 import CTABanner from "@/components/CTABanner";
 import CircuitPattern from "@/components/CircuitPattern";
-import LeadMagnet from "@/components/LeadMagnet";
 import NewsletterInlineForm from "@/components/NewsletterInlineForm";
 import type { Metadata } from "next";
 
@@ -83,13 +82,6 @@ const audiences = [
   },
 ];
 
-const courseOutcomes = [
-  "Conduct a complete AI security audit across 6 domains",
-  "Produce a professional audit report a client can act on",
-  "Map AI risks to HIPAA, SOC 2, GDPR, and NIST AI RMF",
-  "Identify Shadow AI inside any organization",
-  "Build a repeatable audit practice from scratch",
-];
 
 export default function HomePage() {
   return (
@@ -162,9 +154,6 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/free-risk-overview" className="btn-primary">
               Start Learning Free
-            </Link>
-            <Link href="/course" className="btn-ghost">
-              Browse the Course
             </Link>
           </div>
 
@@ -293,83 +282,32 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Form */}
+            {/* Download */}
             <div>
-              <LeadMagnet
-                headline="The AI Security Risk Overview — Free Download"
-                subhead="One page. Five risks. Instant download. Used by security consultants to brief SMB leadership."
-                dark={false}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Course Teaser */}
-      <section className="py-20 px-4" style={{ background: "white" }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionLabel text="THE COURSE" />
-              <h2
-                className="font-display font-bold mb-3"
-                style={{ fontSize: "clamp(24px, 4vw, 40px)", color: "var(--navy)" }}
-              >
-                AI Security Audit Fundamentals
-              </h2>
-              <p
-                className="font-body mb-6"
-                style={{ fontSize: "20px", color: "var(--teal)", fontWeight: 600 }}
-              >
-                From Zero to Audit-Ready in 6.5 Hours
+              <h3 className="font-display font-bold mb-2" style={{ color: "white", fontSize: "clamp(18px, 3vw, 24px)" }}>
+                The AI Security Risk Overview — Free Download
+              </h3>
+              <p className="font-body mb-6" style={{ color: "rgba(255,255,255,0.65)", fontSize: "16px" }}>
+                One page. Five risks. Instant download. Used by security consultants to brief SMB leadership.
               </p>
-              <ul className="space-y-3 mb-8">
-                {courseOutcomes.map((outcome, i) => (
-                  <li key={i} className="flex items-start gap-3 font-body" style={{ fontSize: "16px", color: "var(--mid-gray)" }}>
-                    <span style={{ color: "var(--teal)", fontWeight: 700, marginTop: "2px" }}>✓</span>
-                    {outcome}
-                  </li>
-                ))}
-              </ul>
-              <Link href="/course" className="btn-primary">
-                View the Full Curriculum →
-              </Link>
-            </div>
-
-            <div
-              className="corner-bracket rounded-sm p-8"
-              style={{ background: "var(--light-bg)", border: "1px solid var(--divider)" }}
-            >
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                {[
-                  { val: "8", lbl: "Modules" },
-                  { val: "35", lbl: "Lessons" },
-                  { val: "6.5h", lbl: "Self-Paced" },
-                  { val: "$297", lbl: "Launch Price" },
-                ].map((s) => (
-                  <div key={s.lbl} className="text-center">
-                    <div className="font-display font-bold" style={{ fontSize: "28px", color: "var(--teal)" }}>
-                      {s.val}
-                    </div>
-                    <div className="font-body" style={{ fontSize: "12px", color: "var(--mid-gray)", letterSpacing: "1px", textTransform: "uppercase" }}>
-                      {s.lbl}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div
-                className="rounded px-4 py-3 font-body"
-                style={{ background: "rgba(0,121,107,0.08)", borderLeft: "3px solid var(--teal)", fontSize: "14px", color: "var(--teal)" }}
+              <a
+                href="/AITrustAudit_5RiskOverview.pdf"
+                download
+                className="btn-primary flex items-center justify-center gap-2"
+                style={{ display: "flex" }}
               >
-                <strong>Includes:</strong> 8 templates valued at $483 — audit workbook, AUP template,
-                vendor risk questionnaire, full report template, and more.
-              </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Free — Instant Access
+              </a>
+              <p className="font-body mt-3 text-center" style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)" }}>
+                Free PDF — no sign-up required
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Newsletter teaser */}
+{/* Newsletter teaser */}
       <section className="relative overflow-hidden py-16 px-4" style={{ background: "var(--navy)" }}>
         <CircuitPattern opacity={0.1} />
         <div className="relative max-w-2xl mx-auto text-center">
@@ -396,8 +334,6 @@ export default function HomePage() {
         subhead="Download the free risk overview. Five risks, one page, no fluff."
         primaryCTA="Get the Free Risk Overview"
         primaryHref="/free-risk-overview"
-        secondaryCTA="View the Course"
-        secondaryHref="/course"
       />
     </>
   );
