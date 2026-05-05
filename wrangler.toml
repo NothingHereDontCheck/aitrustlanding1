@@ -2,16 +2,16 @@ name = "aitrustlanding1"
 compatibility_date = "2024-01-01"
 main = "worker/index.ts"
 
+routes = [
+  { pattern = "aitrustaudit.com", custom_domain = true }
+]
+
 [build]
 command = "npm run build"
 
 [assets]
 directory = "./out"
 binding = "ASSETS"
-
-routes = [
-  { pattern = "aitrustaudit.com/*", custom_domain = true }
-]
 
 [[d1_databases]]
 binding = "DB"
