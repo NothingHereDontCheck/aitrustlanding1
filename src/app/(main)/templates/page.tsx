@@ -3,6 +3,7 @@ import Link from "next/link";
 import SectionLabel from "@/components/SectionLabel";
 import CircuitPattern from "@/components/CircuitPattern";
 import CTABanner from "@/components/CTABanner";
+import DownloadModal from "@/components/DownloadModal";
 
 export const metadata: Metadata = {
   title: "AI Security Templates & Frameworks | AITrustAudit.com",
@@ -144,9 +145,11 @@ export default function TemplatesPage() {
                 <p className="font-body mb-4" style={{ fontSize: "14px", color: "var(--mid-gray)" }}>
                   {t.description}
                 </p>
-                <Link href={t.href} className="btn-primary" style={{ fontSize: "13px", padding: "10px 20px" }}>
-                  Download Free →
-                </Link>
+                <DownloadModal
+                  buttonLabel="Download Free →"
+                  buttonClassName="btn-primary"
+                  buttonStyle={{ fontSize: "13px", padding: "10px 20px" }}
+                />
               </div>
             ))}
           </div>

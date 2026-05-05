@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ShieldIcon from "./ShieldIcon";
+import DownloadModal from "./DownloadModal";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -48,9 +49,11 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link href="/free-risk-overview" className="btn-primary" style={{ padding: "10px 20px", fontSize: "13px" }}>
-            Free Risk Overview
-          </Link>
+          <DownloadModal
+            buttonLabel="Free Risk Overview"
+            buttonClassName="btn-primary"
+            buttonStyle={{ padding: "10px 20px", fontSize: "13px" }}
+          />
         </nav>
 
         {/* Mobile hamburger */}
@@ -82,9 +85,10 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link href="/free-risk-overview" className="btn-primary text-center mt-2" onClick={() => setOpen(false)}>
-            Free Risk Overview
-          </Link>
+          <DownloadModal
+            buttonLabel="Free Risk Overview"
+            buttonClassName="btn-primary text-center mt-2"
+          />
         </nav>
       )}
     </header>
